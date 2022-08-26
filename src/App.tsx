@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC} from 'react';
+import {HashRouter, useRoutes} from "react-router-dom";
+import {Button} from 'antd';
+import './styles/App.css';
+import 'antd/dist/antd.less'
+import {createRouter} from './routers'
+import Menu from './components/Menu/index'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const RouteElement = () => {
+    const element = useRoutes(createRouter())
+    return element
 }
+const App: FC = () => (
+    <div>
+        <div>
+            <Menu></Menu>
+        </div>
+        <div>
+            <HashRouter>
+                <RouteElement/>
+            </HashRouter>
+        </div>
+    </div>
+
+
+);
 
 export default App;
