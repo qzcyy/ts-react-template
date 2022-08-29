@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export const initialState:APP.AppState={
     currentRouterConfig:{
@@ -10,7 +10,7 @@ export const appSlice=createSlice({
     name:'app',
     initialState,
     reducers:{
-        setCurrentRouterConfig:(state,action)=>{
+        setCurrentRouterConfig:(state,action:PayloadAction<APP.RouterConfig>)=>{
             state.currentRouterConfig=action.payload
         }
     }
